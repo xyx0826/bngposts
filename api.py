@@ -33,6 +33,16 @@ class Api:
                 print(f"Written {file_name}")
 
     def _get_abs_url(self, props: dict, key: str) -> str:
+        """
+        Converts a relative Bungie.net URL to an absolute one.
+
+        Args:
+            props (dict): The dictionary containing the URL to convert.
+            key (str): The key in the dictionary pointing to the URL.
+
+        Returns:
+            str: The converted, absolute Bungie.net URL.
+        """
         url = props[key]
         if not url:
             return None
