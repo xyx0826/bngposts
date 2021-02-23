@@ -41,11 +41,14 @@ class Api:
         else:
             return HOST + url
 
-    def __init__(self, api_key: str, email: str, from_page: int = 1) -> None:
+    def __init__(self, app_id: int, app_name: str,
+                 api_key: str, email: str, from_page: int = 1) -> None:
         """
         Initializes networking and sets HTTP headers.
 
         Args:
+            app_id (int): The ID of the Bungie.net app.
+            app_name (str): The name of the Bungie.net app.
             api_key (str): The API key to use.
             email (str): The email to use in User-Agent.
             from_page (int): The news page to begin from.
@@ -59,7 +62,7 @@ class Api:
             {"X-API-Key": api_key}
         )
         self._sesh.headers.update(
-            {"User-Agent": f"Lotus/1.0 AppId/34673 ({email})"}
+            {"User-Agent": f"{app_name}/1.0 AppId/{app_id} ({email})"}
         )
         self._data = {
             "currentpage": from_page,

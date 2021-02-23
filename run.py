@@ -20,16 +20,15 @@ def main():
         cfg = json.load(f)
 
     # Validate config keys
-    if "api_key" not in cfg or "email" not in cfg:
+    if "api_key" not in cfg:
         print(
-            "Error: config file does not contain API key or email."
-            "Make sure you have your API key under \"api_key\" and "
-            "email under \"email\"."
+            "Error: config file does not contain API key."
+            "Make sure you have your API key under \"api_key\"."
         )
         return
 
     # Initialize interfaces
-    api = Api(cfg["api_key"], cfg["email"])
+    api = Api(cfg["app_id"], cfg["app_name"], cfg["api_key"], cfg["email"])
     db = Database()
     last_news_id = db.get_last_news_id()
     if last_news_id:

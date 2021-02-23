@@ -1,4 +1,6 @@
 {
+    "app_id": 12345,
+    "app_name": "bngposts",
     "api_key": "0123456789abcdef0123456789abcdef",
     "email": "user@example.com"
 }
